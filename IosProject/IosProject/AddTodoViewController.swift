@@ -21,6 +21,14 @@ class AddTodoViewController: UIViewController {
     }
     
     @IBAction func AddListItemAction(_ sender: Any) {
+        let title = titleTextField.text!
+        let content = contentTextView.text ?? ""
+                
+        let item: TodoList = TodoList(title: title, content: content)
+                
+        print("Add List title : \(item.title)")
+                // TodoListViewController에 생성한 전역변수에 append
+        TodoListManager.shared.list.append(item)
         self.navigationController?.popViewController(animated: true)
     }
     
