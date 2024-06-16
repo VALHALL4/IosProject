@@ -61,11 +61,11 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
         
         switch count {
         case 1:
-            color = UIColor(red: 0.6, green: 1.0, blue: 0.6, alpha: 1.0) // 연두색
+            color = UIColor(red: 199/255, green: 220/255, blue: 1.0, alpha: 1.0) // 연두색
         case 2:
-            color = UIColor(red: 0.3, green: 0.8, blue: 0.3, alpha: 1.0) // 초록색
+            color = UIColor(red: 112/255, green: 132/255, blue: 255/255, alpha: 1.0) // 초록색
         case 3...:
-            color = UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 1.0) // 진한 녹색
+            color = UIColor(red: 26/255, green: 45/255, blue: 1.0, alpha: 1.0) // 진한 녹색
         default:
             color = .clear
         }
@@ -73,8 +73,9 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
         return .customView {
             let view = UIView()
             view.backgroundColor = color
-            view.layer.cornerRadius = 15 // 원하는 크기로 조정
+            view.layer.cornerRadius = 13 // 원하는 크기로 조정
             view.frame = CGRect(x: 0, y: 0, width: 30, height: 30) // 크기 지정
+            
             return view
         }
     }
@@ -97,12 +98,12 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
             return Calendar.current.isDate(completionDate, inSameDayAs: selectedDate)
         }
         
-        var message = "완료된 일이 없습니다."
+        var message = "완료한 일이 없습니다."
         if !completedTasks.isEmpty {
             message = completedTasks.map { $0.title }.joined(separator: "\n")
         }
         
-        let alert = UIAlertController(title: "완료된 일들", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "완료한 일들", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default))
         present(alert, animated: true, completion: nil)
     }

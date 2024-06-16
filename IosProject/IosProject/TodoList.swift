@@ -2,13 +2,13 @@ import Foundation
 
 struct TodoList {
     var title: String = ""
-    var content: String?
+    var deadline: Date?
     var isComplete: Bool = false
     var completionDate: Date?
 
-    init(title: String, content: String?, isComplete: Bool = false, completionDate: Date? = nil) {
+    init(title: String, deadline: Date? = nil, isComplete: Bool = false, completionDate: Date? = nil) {
         self.title = title
-        self.content = content
+        self.deadline = deadline
         self.isComplete = isComplete
         self.completionDate = completionDate
     }
